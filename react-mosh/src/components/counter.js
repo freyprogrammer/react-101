@@ -11,10 +11,16 @@ export class Counter extends Component {
     render() {
         return (
             <div>
-                <span style={this.styles} className="badge badge-primary m-2">{this.formatCount()}</span>
+                <span style={this.styles} className={this.getBadgeClasses()}>{this.formatCount()}</span>
                 <button className='btn btn-secondary m-2'>+</button>
             </div>
         )
+    }
+
+    getBadgeClasses() {
+        let classCount = "badge m-2 badge-";
+        classCount += this.state.count === 0 ? "warning" : "primary";
+        return classCount;
     }
 
     formatCount(){
