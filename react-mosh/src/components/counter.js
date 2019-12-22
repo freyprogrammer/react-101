@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 export class Counter extends Component {
     state = {
         count: 0,
+        tags: ["tag1", "tag2", "tag99"]
     };
     styles = {
         fontSize: 50,
@@ -13,6 +14,9 @@ export class Counter extends Component {
             <div>
                 <span style={this.styles} className={this.getBadgeClasses()}>{this.formatCount()}</span>
                 <button className='btn btn-secondary m-2'>+</button>
+                <ul>
+                    {this.state.tags.map(tag => <li key={tag}>{tag}</li>)}
+                </ul>
             </div>
         )
     }
