@@ -9,28 +9,27 @@ export class Counter extends Component {
         fontSize: 50,
         fontWeight: "bold"
     };
+
+    renderTags() {
+        if(this.state.count === 0){
+            return <p>There are no Tags</p>
+        }
+        return (
+        <ul>
+            {this.state.tags.map(tag => <li key={tag}>{tag}</li>)}
+        </ul>
+        )
+    }
     render() {
+        
         return (
             <div>
-                <span style={this.styles} className={this.getBadgeClasses()}>{this.formatCount()}</span>
-                <button className='btn btn-secondary m-2'>+</button>
-                <ul>
-                    {this.state.tags.map(tag => <li key={tag}>{tag}</li>)}
-                </ul>
+                {this.state.count === 0 && 'Please create a new tag!'}
+                {this.renderTags()}   
             </div>
         )
     }
 
-    getBadgeClasses() {
-        let classCount = "badge m-2 badge-";
-        classCount += this.state.count === 0 ? "warning" : "primary";
-        return classCount;
-    }
-
-    formatCount(){
-        const { count } = this.state;
-        return count === 0 ? "Zero": count;  
-    }
 }
 
 export default Counter;
