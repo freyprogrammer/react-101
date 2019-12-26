@@ -25,6 +25,8 @@ export class Counter extends Component {
     render() {
         return (
             <div>
+                {this.props.children}
+                <h2>{this.props.id}</h2>
                 <span style={this.styles} className={this.getBadgeClasses()}>{this.formatCount()}</span>
                 <button onClick={() => this.handleIncrement("product")} className='btn btn-secondary m-2'>+</button>
                 <ul>
