@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 
 export class Counter extends Component {
     state = {
-        count: 0,
-        tags: ["tag1", "tag2", "tag99"]
+        count: 0
     };
     styles = {
         fontSize: 50,
@@ -25,13 +24,10 @@ export class Counter extends Component {
     render() {
         return (
             <div>
-                {this.props.children}
-                <h2>{this.props.id}</h2>
+                <h2>Counter #{this.props.id}</h2>
                 <span style={this.styles} className={this.getBadgeClasses()}>{this.formatCount()}</span>
-                <button onClick={() => this.handleIncrement("product")} className='btn btn-secondary m-2'>+</button>
-                <ul>
-                    {this.state.tags.map(tag => <li key={tag}>{tag}</li>)}
-                </ul>
+                <button onClick={() => this.handleIncrement("product")} className='btn btn-secondary m-2'>Increment</button>
+                <button onClick={this.props.onDelete} className='btn btn-danger m-2'>Delete</button>
             </div>
         )
     }
@@ -44,7 +40,7 @@ export class Counter extends Component {
 
     formatCount(){
         const { count } = this.state;
-        return count === 0 ? "Zero": count;  
+        return count === 0 ? "0": count;  
     }
 }
 
