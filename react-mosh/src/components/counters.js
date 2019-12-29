@@ -14,14 +14,23 @@ export class Counters extends Component {
 
     handleDelete = (counterId) => {
         console.log(`You've deleted number ${counterId} ID`);
-        const counters = this.state.counters.filter(c => c.id !== counterId)
-        this.setState({ counters: counters })
+        const counters = this.state.counters.filter(c => c.id !== counterId);
+        this.setState({ counters: counters });
     };
+
+    handleReset = () => {
+        const counters = this.state.counters.map(c => {
+            c.value = 0;
+            return c;
+        })
+        this.setState({ counters });
+    }
 
     render() {
         
         return (
             <div>
+                <button onClick={this.handleReset} className="btn btn-info btn-lg m-2">Reset</button>
                 {this.state.counters.map(counter => 
                 <Counter key={counter.id} onDelete={this.handleDelete} counter={counter}/>
                 )}

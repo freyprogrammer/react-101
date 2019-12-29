@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 export class Counter extends Component {
     state = {
-        count: 0
+        count: this.props.counter.value
     };
     styles = {
         fontSize: 50,
