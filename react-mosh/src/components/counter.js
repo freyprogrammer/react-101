@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export class Counter extends Component {
+export class counter extends Component {
 
     styles = {
         fontSize: 50,
@@ -38,4 +38,4 @@ export class Counter extends Component {
     }
 }
 
-export default Counter;
+export default counter;
