@@ -7,11 +7,6 @@ export class counter extends Component {
         fontWeight: "bold"
     };
 
-    // constructor(){
-    //     super();
-    //     this.handleIncrement = this.handleIncrement.bind(this);
-    // }
-
     render() {
         return (
             <div>
@@ -35,6 +30,7 @@ export class counter extends Component {
     formatCount(){
         const { value } = this.props.counter;
         return value === 0 ? "0": value;
+        
     }
 }
 
