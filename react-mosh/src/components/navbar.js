@@ -1,15 +1,17 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export class navbar extends Component {
-    render() {
-        return (
-            <div>
-                <nav className="navbar navbar-light bg-light">
-                    <a className="navbar-brand" href="#">Navbar<span className="badge badge-light">{this.props.totalCounters}</span></a>
-                </nav>
-            </div>
-        )
-    }
+const navbar = (props) => {
+    return (
+        <div>
+            <nav className="navbar navbar-light bg-light">
+                <a className="navbar-brand" href="#">Navbar
+                    <span className="badge badge-light">
+                        {props.totalCounters}
+                    </span>
+                </a>
+            </nav>
+        </div>
+    )
 }
 
 export default navbar
